@@ -1,6 +1,7 @@
 package com.example.backend_project_2.entity;
 
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
@@ -26,6 +27,9 @@ public class User {
     @Column(nullable = false)
     private String address;
 
+    @Column(nullable = false)
+    private boolean isAdmin = false; // Add role field with default value
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cart> carts;
 
@@ -33,12 +37,13 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String password, String address) {
+    public User(String firstName, String lastName, String email, String password, String address, boolean isAdmin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.address = address;
+        this.isAdmin = isAdmin;
     }
 
     // Getters and Setters
@@ -90,6 +95,14 @@ public class User {
         this.address = address;
     }
 
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
     public List<Cart> getCarts() {
         return carts;
     }
@@ -98,4 +111,3 @@ public class User {
         this.carts = carts;
     }
 }
-

@@ -1,4 +1,4 @@
-package com.example.backend_project_2.service;
+package com.example.backend_project_2.kafka;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -12,3 +12,6 @@ public class KafkaConsumerService {
         // Handle the message (e.g., logging, triggering other services)
     }
 }
+
+
+

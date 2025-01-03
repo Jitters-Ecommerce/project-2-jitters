@@ -1,4 +1,4 @@
-package com.example.backend_project_2.service;
+package com.example.backend_project_2.kafka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -14,3 +14,5 @@ public class KafkaProducerService {
         kafkaTemplate.send(topic, message);
     }
 }
+
+

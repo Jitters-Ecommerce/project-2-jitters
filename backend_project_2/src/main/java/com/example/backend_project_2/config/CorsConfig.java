@@ -50,9 +50,12 @@ public class CorsConfig {
         // Define CORS configuration
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true); // Allow credentials (cookies, headers)
-        config.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://yourdomain.com")); // Set allowed origins
-        config.setAllowedHeaders(Arrays.asList("*")); // Allow all headers
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Allow HTTP methods
+        // config.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://yourdomain.com")); // Set allowed origins
+        config.addAllowedOriginPattern("*"); 
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+        // config.setAllowedHeaders(Arrays.asList("*")); // Allow all headers
+        // config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Allow HTTP methods
         config.setExposedHeaders(Arrays.asList("Authorization", "Content-Type")); // Expose specific headers to clients
 
         source.registerCorsConfiguration("/**", config); // Apply CORS settings globally
